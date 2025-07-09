@@ -13,6 +13,6 @@ This is a open source ecommerce site for learning purpose
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/your-username/project-name.git
+git clone https://github.com/aminasakhiyudeen/ecommerce.git
 cd project-name
 npm install
