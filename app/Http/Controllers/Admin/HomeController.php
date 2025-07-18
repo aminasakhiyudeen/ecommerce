@@ -14,4 +14,9 @@ class HomeController extends Controller
         return view("admin.home",compact("title"));
 
     }
+    public function doLogin() {
+        $title = "eCommerce Admin Side - Home";
+
+       return redirect()->route("admin.dashboard");
+    }
 }
