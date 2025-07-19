@@ -19,7 +19,12 @@ Route::prefix('admin')
     });
 
 Route::get('/', [HomeController::class, 'index']);
-
+Route::get('/login', [HomeController::class, 'login'])->name('login');
+Route::post('/do-login', [HomeController::class, 'doLogin'])->name('do.login');
+Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
+Route::get('/register', [HomeController::class, 'register'])->name('register');
+Route::post('/do-register', [HomeController::class, 'doRegister'])->name('do.register');
 // Route::get('/', function () {
 //     return view('welcome');
 // });

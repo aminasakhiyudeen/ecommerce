@@ -10,6 +10,8 @@
     <a class="py-2 d-none d-md-inline-block" href="#">Support</a>
     <a class="py-2 d-none d-md-inline-block" href="#">Pricing</a>
     <a class="py-2 d-none d-md-inline-block" href="#">Cart</a>
+    <a class="py-2 d-none d-md-inline-block" href="{{route('login')}}">Sign In</a>
+      <a class="py-2 d-none d-md-inline-block" href="{{route('logout')}}">Logout</a>
     <a class="py-2 d-none d-md-inline-block" href="{{route('admin.home')}}">Login to admin side</a>
   </nav>
 </header>
