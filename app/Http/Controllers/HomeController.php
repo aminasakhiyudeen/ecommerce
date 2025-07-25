@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Mail\UserCreatedMail;
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -45,10 +45,13 @@ class HomeController extends Controller
         return view("register",compact("title"));
     }
      public function doRegister() {
+
         request()->validate(['name'=>'required','email'=>'required','password'=>'required']);
         $title = "Register";
         $input = ['name' => request('name'),'email' => request('email'), 'password' => request('password')];
         User::create($input);
+
+        Mail::to(request('email'))->send(new UserCreatedMail());
         return view("dashboard",compact("title"));
     }
 }

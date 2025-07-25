@@ -9,19 +9,19 @@
      @csrf
     <h1 class="h3 mb-3 fw-normal">Register</h1>
  <div class="form-floating">
-      <input type="text" name="name" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="floatingInput" placeholder="name@example.com">
       <label for="floatingInput">Name</label>
       @error('name') <p class="alert alert-danger">{{$message}}</p> @enderror
     </div>
     <br>
     <div class="form-floating">
-      <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="floatingInput" placeholder="name@example.com">
       <label for="floatingInput">Email address</label>
       @error('email') <p class="alert alert-danger">{{$message}}</p> @enderror
     </div>
     <br>
     <div class="form-floating">
-      <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="floatingPassword" placeholder="Password">
       <label for="floatingPassword">Password</label>
       @error('password') <p class="alert alert-danger">{{$message}}</p> @enderror
     </div>
