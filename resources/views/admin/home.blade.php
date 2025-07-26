@@ -13,15 +13,21 @@
     <form action="{{route('admin.do.login')}}" method="post">
       @csrf
         <h1 class="h3 mb-3 fw-normal">Please sign in - Admin Side</h1>
-
+@if(session()->has("message"))
+    <div class="alert alert-danger" role="alert">
+      {{ session()->get("message")}}
+    </div>
+    @endif
         <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
+            <input type="email" class="form-control  @error('email') is-invalid @enderror" id="floatingInput" name="email" placeholder="name@example.com">
             <label for="floatingInput">Email address</label>
+              @error('email') <p class="alert alert-danger">{{$message}}</p> @enderror
         </div>
         <br>
         <div class="form-floating">
-            <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
+            <input type="password" class="form-control  @error('password') is-invalid @enderror" name="password" id="floatingPassword" placeholder="Password">
             <label for="floatingPassword">Password</label>
+             @error('password') <p class="alert alert-danger">{{$message}}</p> @enderror
         </div>
 
         <div class="checkbox mb-3">

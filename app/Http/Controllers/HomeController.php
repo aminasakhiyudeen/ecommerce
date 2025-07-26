@@ -49,9 +49,9 @@ class HomeController extends Controller
         request()->validate(['name'=>'required','email'=>'required','password'=>'required']);
         $title = "Register";
         $input = ['name' => request('name'),'email' => request('email'), 'password' => request('password')];
-        User::create($input);
+        $user = User::create($input);
 
-        Mail::to(request('email'))->send(new UserCreatedMail());
+        Mail::to(request('email'))->send(new UserCreatedMail($user));
         return view("dashboard",compact("title"));
     }
 }

@@ -16,11 +16,12 @@ class HomeController extends Controller
     }
     public function doLogin() {
         $title = "eCommerce Admin Side - Home";
+        request()->validate(['email'=>'required','password'=>'required']);
         $input = ['email' => request('email'), 'password' => request('password')];
         if(auth()->guard('admin')->attempt($input, true)){
             return redirect()->route("admin.dashboard");
         }else{
-            return redirect()->route("admin.home");
+            return redirect()->route("admin.home")->with("message", "Invalid Login");
         }
        
     }
